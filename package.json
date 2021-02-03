@@ -1,0 +1,38 @@
+{
+  "name": "blog-nosqlredis",
+  "version": "1.0.0",
+  "description": "Esta API GraphQL es parte del trabajo de grado y esta desarrollada con la base de datos Redis",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js, graphql index",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Api",
+    "GraphQL",
+    "Redis",
+    "NoSQL"
+  ],
+  "author": "Andres Quinche",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.0",
+    "graphql-redis-subscriptions": "^2.3.1",
+    "graphql-tools": "^7.0.2",
+    "ioredis": "^4.19.4",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "standard": "^16.0.3"
+  }
+}
