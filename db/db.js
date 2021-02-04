@@ -1,9 +1,48 @@
 'use strict'
-const redis = require('redis')
-const client = redis.createClient(`6379`,`192.168.71.1`);
+const redis = require('ioredis')
+const { //aqui ubicamos las variables que se creo en el archivo donde se puso las variables de entorno
+    DB_HOST,
+    DB_PORT,  
+    }=process.env
 
+class  RedisConnection {
 
-module.exports= client.on('connect', ()=>{
-    console.log("conectado")
-    })
+    constructor(){
+        this.client = this.connect()
+    }
+    connect(){
+        let client = new redis({
+            host: `${DB_HOST}`,
+            port: `${DB_PORT}`
+        });
+
+        client.on("connect", ()=> {
+            console.log("Conectado a Redis")
+        });
+
+        client.on("erros", err =>{
+            console.log(`Redis error: ${err} `)
+        });
+        return client;
+    }
+
+    async get(key){
+        return await this.client.hgetall(key);
+    }
+
+    async getId(key){
+        console.log("key", key)
+        return await this.client.hmget(key);
+    }
+    async set(key, value){
+        return await this.client.set(key, value)
+    }
+
+    async getkeys(key){
+        return await this.client.keys(key);
+    }
+
+}
+
+module.exports = RedisConnection;
     

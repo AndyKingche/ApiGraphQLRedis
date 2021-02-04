@@ -1,5 +1,5 @@
 type Usuarios {
-    _id: ID!
+    id: String!
     nombre: String!
     email: String!
     nickname: String!
@@ -22,20 +22,20 @@ input UsuarioEdit {
 }
 
 type Comentarios{
-    _id:ID!
+    id:String!
     contenido: String!
     usuariosid:[Usuarios]
 }
 input ComentarioInput{
     contenido: String!
-    usuariosid:ID!
+    usuariosid:String!
 }
 input ComentarioEdit{
     contenido: String
-    usuariosid:ID
+    usuariosid:String
 }
 type Categorias{
-    _id:ID!
+    id:String!
     nombre_categoria:String!
 }
 input CategoriaInput{
@@ -45,7 +45,7 @@ input CategoriaEdit{
     nombre_categoria:String
 }
 type Etiquetas{
-    _id:ID!
+    id:String!
     nombre_etiqueta:String!
 
 }
@@ -58,7 +58,7 @@ input EtiquetaEdit{
 }
 
 type Posts{
-    _id:ID!
+    id:String!
     titulo:String!
     "formato de fecha: mes - dia - año"
     fecha_publicacion: String!
@@ -72,18 +72,18 @@ input PostInput{
     "formato de fecha:  mes - dia - año"
     fecha_publicacion: String!
     estado:Boolean!
-    categoriasid:ID!
-    comentarioid:ID!
-    usuariosid:ID!
+    categoriasid:String!
+    comentarioid:String!
+    usuariosid:String!
 }
 input PostEdit{
     titulo:String!
     "formato de fecha:  mes - dia - año"
     fecha_publicacion: String!
     estado:Boolean!
-    categoriasid:ID
-    comentarioid:ID
-    usuariosid:ID
+    categoriasid:String
+    comentarioid:String
+    usuariosid:String
 }
 type PostEtiquetas{
     idetiqueta:[Etiquetas]
@@ -101,59 +101,59 @@ type Query{
     "Devuelve todos los Usuarios"
     getUsuarios:[Usuarios]
     "Devuelve un solo Usuario, el que ud defina"
-    getUsuario(id:ID!):Usuarios
+    getUsuario(id:String!):Usuarios
     "Devuelve todas las Categorias"
     getCategorias:[Categorias]
     "Devuelve una sola categoria, el que ud defina"
-    getCategoria(id:ID!):Categorias
+    getCategoria(id:String!):Categorias
     "Devuelve todas las Etiquetas"
     getEtiquetas:[Etiquetas]
     "Devuelve una sola Etiqueta, la que ud defina"
-    getEtiqueta(id:ID!):Etiquetas
+    getEtiqueta(id:String!):Etiquetas
     "Devuelve todos los comentarios"
     getComentarios:[Comentarios]
     "Devuelve un solo comentario, la que ud defina"
-    getComentario(id:ID!):Comentarios
+    getComentario(id:String!):Comentarios
     "Devuelve todos los posts"
     getPosts:[Posts]
     "Devuelve un solo post, la que ud defina"
-    getPost(id:ID!):Posts
+    getPost(id:String!):Posts
     "Devuelve todos los Post etiquetas"
     getPostEtiquetas:[PostEtiquetas]
     "Devuelve un solo Post Etiqueta por id"
-    getPostEtiqueta(id:ID!):PostEtiquetas
+    getPostEtiqueta(id:String!):PostEtiquetas
 }
 type Mutation{
     "Crear un Usuario"
     createUsuario(input: UsuarioInput!):Usuarios
     "Editar un Usuario"
-    editUsuario(id:ID!, input:UsuarioEdit!):Usuarios
+    editUsuario(id:String!, input:UsuarioEdit!):Usuarios
     "Eliminar un Usuario"
-    deleteUsuario(id:ID!):Usuarios
+    deleteUsuario(id:String!):Usuarios
     "Crear una Categoria"
     createCategoria(input: CategoriaInput!):Categorias
     "Editar una Categoria"
-    editCategoria(id:ID!, input: CategoriaEdit!):Categorias
+    editCategoria(id:String!, input: CategoriaEdit!):Categorias
     "Eliminar una categoria"
-    deleteCategoria(id:ID!):Categorias
+    deleteCategoria(id:String!):Categorias
     "Crear una Etiqueta"
     createEtiqueta(input: EtiquetaInput!):Etiquetas
     "Editar una etiqueta"
-    editEtiqueta(id:ID!, input: EtiquetaEdit!):Etiquetas
+    editEtiqueta(id:String!, input: EtiquetaEdit!):Etiquetas
     "Eliminar una etiqueta"
-    deleteEtiqueta(id:ID!):Etiquetas
+    deleteEtiqueta(id:String!):Etiquetas
     "Crear un Comentario"
     createComentario(input: ComentarioInput!):Comentarios
     "Editar un Comentario"
-    editComentario(id:ID!, input:ComentarioEdit!):Comentarios
+    editComentario(id:String!, input:ComentarioEdit!):Comentarios
     "Eliminar un Comentario"
-    deleteComentario(id:ID!):Comentarios
+    deleteComentario(id:String!):Comentarios
     "Crear un Post"
     createPost(input: PostInput!): Posts
     "Editar un Post"
-    editPost(id:ID!,input:PostEdit!):Posts
+    editPost(id:String!,input:PostEdit!):Posts
     "Eliminar un Post"
-    deletePost(id:ID!):Posts
+    deletePost(id:String!):Posts
     "Crear un Post Etiqueta"
     createPostEtiqueta(input: PostEtiquetaInput ): PostEtiquetas
     "Editar un Post Etiqueta"

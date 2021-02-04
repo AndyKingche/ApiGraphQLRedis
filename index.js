@@ -1,5 +1,4 @@
 'use strict'
-const Redis = require('ioredis')
 require('dotenv').config();
 const { makeExecutableSchema } = require('graphql-tools')
 const express = require('express')
