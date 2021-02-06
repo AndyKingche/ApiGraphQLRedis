@@ -29,17 +29,18 @@ class  RedisConnection {
     async get(key){
         return await this.client.hgetall(key);
     }
-
     async getId(key){
         console.log("key", key)
-        return await this.client.hmget(key);
+        return await this.client.exists(key);
     }
     async set(key, value){
-        return await this.client.set(key, value)
+        return await this.client.hmset(key, value)
     }
-
     async getkeys(key){
         return await this.client.keys(key);
+    }
+    async delete(key){
+        return await this.client.del(key);
     }
 
 }

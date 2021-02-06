@@ -9,7 +9,6 @@ const resolvers = require('./lib/resolvers')
 const cors = require('cors')
 const app = express()
 const port = process.env.port || 4000
-const client = require('./db/db')
 
 const typeDefs = readFileSync(
     join(
@@ -20,8 +19,7 @@ app.use(cors())
 app.use('/api', graphqlHTTP({
   schema: schema,
   rootValue: resolvers,
-  graphiql: true,
-  context:{ client }
+  graphiql: true
 }))
 
 app.listen(port, () => {

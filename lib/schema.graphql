@@ -62,7 +62,7 @@ type Posts{
     titulo:String!
     "formato de fecha: mes - dia - año"
     fecha_publicacion: String!
-    estado:Boolean!
+    estado:String!
     categoriasid:[Categorias]
     comentarioid:[Comentarios]
     usuariosid:[Usuarios]
@@ -71,16 +71,16 @@ input PostInput{
     titulo:String!
     "formato de fecha:  mes - dia - año"
     fecha_publicacion: String!
-    estado:Boolean!
+    estado:String!
     categoriasid:String!
     comentarioid:String!
     usuariosid:String!
 }
 input PostEdit{
-    titulo:String!
+    titulo:String
     "formato de fecha:  mes - dia - año"
-    fecha_publicacion: String!
-    estado:Boolean!
+    fecha_publicacion: String
+    estado:String
     categoriasid:String
     comentarioid:String
     usuariosid:String
